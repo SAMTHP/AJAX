@@ -1,0 +1,8 @@
+$(document).ready(function() {
+	alert("test");
+let show_email = $("<%= j (render 'layouts/email_content', email: @email_show) %>");
+$('.display-email').html(show_email)
+
+// $(this).removeClass("new_mess");
+// $(this).addClass("readed");
+});

@@ -1,0 +1,32 @@
+<div class="container">
+  <h2>Listes des emails</h2>
+  <p>Contextual classes can be used to color table rows or table cells. The classes that can be used are: .active, .success, .info, .warning, and .danger.</p>
+
+  <table class="table">
+
+	    <thead>
+
+	      <tr>
+	        <th class="liste" ><button>Liste</button></th>
+	        <th class="content">Contenu</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+
+	<% @emails.each do |element| %>
+	      <tr class="">
+	        <td class="object">ID : <%= element.id %> - <%= element.object.upcase%><p><button class="show" id="<%=element.id%>-show">Show</button></p></td>
+	        <td id="body-<%=element.id%>" class="body">
+	        	<ul>
+	        		<li><h2>Object : <%= element.object %></h2></li>
+	        		<li><strong>Body :</strong><%= element.body %></li>
+	        		<p><%= link_to 'Delete',  email_path(element.id), remote: true, class:'delete_email', method: :delete, data: { confirm: 'Are you sure?' } %></p>
+	        	</ul>
+	        </td>
+	      </tr>
+	    </tbody>
+	
+	<% end %>
+  </table>
+</div>
+<script type="text/javascript">

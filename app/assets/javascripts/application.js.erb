@@ -1,0 +1,53 @@
+// This is a manifest file that'll be compiled into application.js, which will include all the files
+// listed below.
+//
+// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, or any plugin's
+// vendor/assets/javascripts directory can be referenced here using a relative path.
+//
+// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
+// compiled file. JavaScript code in this file should be added after the last require_* statement.
+//
+// Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
+// about supported directives.
+//
+//= require jquery3
+//= require popper
+//= require rails-ujs
+//= require activestorage
+//= require turbolinks
+//= require bootstrap-sprockets
+//= require_tree .
+
+function preparePage() {
+	var myObject = $(".liste").click(function(){
+		$(".object").toggle();
+
+	});
+
+	var myShow = $(".show").click(function(){
+		var showCssId = $(this).attr('id');
+		var emailId = showCssId.substring(0,showCssId.indexOf('-'));
+		$('#body-'+emailId).toggle();
+		$('#body-'+emailId).css('backgroundColor','#F4A460');
+		if (myShow){
+			$(".content").toggle();
+		}
+	});
+
+	// Cacher le div au chargement initial de la page.
+	$(".liste").css('backgroundColor','grey');
+	$(".content").css('backgroundColor','#74D0F1');
+	$(".object").css('display','none');
+	// $(".object").css('backgroundColor','#F4A460');
+	$(".body").css('display','none');
+	$(".content").css('display','none');
+
+
+}
+
+
+
+$(document).ready(function () {
+ preparePage();
+
+});
